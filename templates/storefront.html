@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="tr">
   <head>
     <meta charset="utf-8" />
@@ -58,7 +58,11 @@
               <path d="m16 16 5 5" />
             </svg>
           </button>
-          <button class="icon bag fav" aria-label="İstek listem / Wishlist" onclick="showFavorites()">
+          <button
+            class="icon bag fav"
+            aria-label="İstek listem / Wishlist"
+            onclick="showFavorites()"
+          >
             <svg viewBox="0 0 24 24">
               <path
                 d="M20.8 4.6c-2.4-2.2-6-1.6-8.8 1.6C9.2 3 5.6 2.4 3.2 4.6c-2.5 2.4-1.8 6 .4 8.3L12 21l8.4-8.1c2.2-2.3 2.9-5.9.4-8.3Z"
@@ -66,7 +70,11 @@
             </svg>
             <span id="fav-count">0</span>
           </button>
-          <button class="icon bag" aria-label="Alışveriş çantası / Shopping bag" onclick="openCart()">
+          <button
+            class="icon bag"
+            aria-label="Alışveriş çantası / Shopping bag"
+            onclick="openCart()"
+          >
             <svg viewBox="0 0 24 24"><path d="M4 7h16l1 14H3L4 7Zm4 0V5a4 4 0 0 1 8 0v2" /></svg>
             <span id="count">0</span>
           </button>
@@ -152,74 +160,106 @@
           <span aria-hidden="true">↓</span>
         </a>
       </section>
-      <section class="intro">
-        <span class="eyebrow" data-en="LESS, BUT MEANINGFUL" data-tr="AZ, AMA ANLAMLI">
-          LESS, BUT MEANINGFUL
-        </span>
-        <p
-          data-en="Not just something you wear.<br>Something you feel."
-          data-tr="Sadece taktığın bir şey değil.<br>Hissettiğin bir şey."
-        >
-          Not just something you wear.
-          <br />
-          Something you feel.
-        </p>
-        <span class="small">THE KİBELE POINT OF VIEW</span>
-      </section>
       <!-- KATEGORİYE GÖRE ALIŞVERİŞ: Aşağı ilk inişte yavaşça belirir, üzerine gelince hafifçe yakınlaşır. -->
       <section class="shop-categories" id="categories">
         <h2 class="reveal" data-en="Shop by category" data-tr="Kategoriye göre alışveriş yapın">
-          Shop by category
+          Cappadocia Series
         </h2>
         <div class="category-grid">
-        <a class="category-tile reveal" href="/collections/necklaces" style="--i: 0">
-          <span class="category-image">
-            <img src="/assets/necklace.jpg" alt="Necklaces" loading="lazy" style="object-position: center 40%" />
-          </span>
-          <span class="category-label" data-en="Necklaces" data-tr="Kolyeler">Necklaces</span>
-        </a>
-        <a class="category-tile reveal" href="/collections/rings" style="--i: 1">
-          <span class="category-image">
-            <img src="/assets/ring.jpg" alt="Rings" loading="lazy" style="object-position: center" />
-          </span>
-          <span class="category-label" data-en="Rings" data-tr="Yüzükler">Rings</span>
-        </a>
-        <a class="category-tile reveal" href="/collections/bracelets" style="--i: 2">
-          <span class="category-image">
-            <img src="/assets/bracelet.jpg" alt="Bracelets" loading="lazy" style="object-position: center" />
-          </span>
-          <span class="category-label" data-en="Bracelets" data-tr="Bileklikler">Bracelets</span>
-        </a>
-        <a class="category-tile reveal" href="/collections/earrings" style="--i: 3">
-          <span class="category-image">
-            <img src="/assets/earrings.jpg" alt="Earrings" loading="lazy" style="object-position: center" />
-          </span>
-          <span class="category-label" data-en="Earrings" data-tr="Küpeler">Earrings</span>
-        </a>
-        <a class="category-tile reveal" href="/collections/charms" style="--i: 0">
-          <span class="category-image">
-            <img src="/assets/story.jpg" alt="Charms" loading="lazy" style="object-position: center 30%" />
-          </span>
-          <span class="category-label" data-en="Charms" data-tr="Charm">Charms</span>
-        </a>
-        <a class="category-tile reveal" href="/collections/cappadocia" style="--i: 1">
-          <span class="category-image">
-            <img src="/assets/hero.jpg" alt="Cappadocia Collection" loading="lazy" style="object-position: center 25%" />
-          </span>
-          <span class="category-label" data-en="Cappadocia Collection" data-tr="Kapadokya Serisi">Cappadocia Collection</span>
-        </a>
-        <a class="category-tile reveal" href="/collections/silver" style="--i: 2">
-          <span class="category-image">
-            <img src="/assets/bracelet.jpg" alt="Silver jewelry" loading="lazy" style="object-position: 70% 40%" />
-          </span>
-          <span class="category-label" data-en="Silver jewelry" data-tr="Gümüş takılar">Silver jewelry</span>
-        </a>
-        <a class="category-tile reveal" href="/collections/gemstones" style="--i: 3">
-          <span class="category-image">
-            <img src="/assets/ring.jpg" alt="Gemstone jewelry" loading="lazy" style="object-position: 30% 60%" />
-          </span>
-          <span class="category-label" data-en="Gemstone jewelry" data-tr="Doğal taşlı takılar">Gemstone jewelry</span>
-        </a>
+          <a class="category-tile reveal" href="/collections/necklaces" style="--i: 0">
+            <span class="category-image">
+              <img
+                src="/assets/necklace.jpg"
+                alt="Necklaces"
+                loading="lazy"
+                style="object-position: center 40%"
+              />
+            </span>
+            <span class="category-label" data-en="Necklaces" data-tr="Kolyeler">Necklaces</span>
+          </a>
+          <a class="category-tile reveal" href="/collections/rings" style="--i: 1">
+            <span class="category-image">
+              <img
+                src="/assets/ring.jpg"
+                alt="Rings"
+                loading="lazy"
+                style="object-position: center"
+              />
+            </span>
+            <span class="category-label" data-en="Rings" data-tr="Yüzükler">Rings</span>
+          </a>
+          <a class="category-tile reveal" href="/collections/bracelets" style="--i: 2">
+            <span class="category-image">
+              <img
+                src="/assets/bracelet.jpg"
+                alt="Bracelets"
+                loading="lazy"
+                style="object-position: center"
+              />
+            </span>
+            <span class="category-label" data-en="Bracelets" data-tr="Bileklikler">Bracelets</span>
+          </a>
+          <a class="category-tile reveal" href="/collections/earrings" style="--i: 3">
+            <span class="category-image">
+              <img
+                src="/assets/earrings.jpg"
+                alt="Earrings"
+                loading="lazy"
+                style="object-position: center"
+              />
+            </span>
+            <span class="category-label" data-en="Earrings" data-tr="Küpeler">Earrings</span>
+          </a>
+          <a class="category-tile reveal" href="/collections/charms" style="--i: 0">
+            <span class="category-image">
+              <img
+                src="/assets/story.jpg"
+                alt="Charms"
+                loading="lazy"
+                style="object-position: center 30%"
+              />
+            </span>
+            <span class="category-label" data-en="Charms" data-tr="Charm">Charms</span>
+          </a>
+          <a class="category-tile reveal" href="/collections/cappadocia" style="--i: 1">
+            <span class="category-image">
+              <img
+                src="/assets/hero.jpg"
+                alt="Cappadocia Collection"
+                loading="lazy"
+                style="object-position: center 25%"
+              />
+            </span>
+            <span class="category-label" data-en="Cappadocia Collection" data-tr="Kapadokya Serisi">
+              Cappadocia Collection
+            </span>
+          </a>
+          <a class="category-tile reveal" href="/collections/silver" style="--i: 2">
+            <span class="category-image">
+              <img
+                src="/assets/bracelet.jpg"
+                alt="Silver jewelry"
+                loading="lazy"
+                style="object-position: 70% 40%"
+              />
+            </span>
+            <span class="category-label" data-en="Silver jewelry" data-tr="Gümüş takılar">
+              Silver jewelry
+            </span>
+          </a>
+          <a class="category-tile reveal" href="/collections/gemstones" style="--i: 3">
+            <span class="category-image">
+              <img
+                src="/assets/ring.jpg"
+                alt="Gemstone jewelry"
+                loading="lazy"
+                style="object-position: 30% 60%"
+              />
+            </span>
+            <span class="category-label" data-en="Gemstone jewelry" data-tr="Doğal taşlı takılar">
+              Gemstone jewelry
+            </span>
+          </a>
         </div>
       </section>
       <!-- ÖZEL SERİ: Solda metin, sağda tam boy fotoğraf. -->
@@ -262,7 +302,12 @@
       <section class="pure-carousel" aria-labelledby="carousel-title">
         <h2 id="carousel-title" data-en="Pure elegance" data-tr="Saf Zarafet">Pure elegance</h2>
         <div class="carousel-shell">
-          <button class="carousel-btn prev" aria-label="Önceki / Previous" onclick="slideCarousel(-1)" hidden>
+          <button
+            class="carousel-btn prev"
+            aria-label="Önceki / Previous"
+            onclick="slideCarousel(-1)"
+            hidden
+          >
             <svg viewBox="0 0 24 24"><path d="m15 5-7 7 7 7" /></svg>
           </button>
           <div class="carousel-track" id="carousel-track" tabindex="0"></div>
@@ -419,10 +464,22 @@
     <footer class="site-footer">
       <div class="sf-columns">
         <div>
-          <span class="eyebrow" data-en="CUSTOMER SERVICE" data-tr="MÜŞTERİ HİZMETLERİ">CUSTOMER SERVICE</span>
-          <button onclick="info('care')" data-en="Jewelry care" data-tr="Takı bakımı">Jewelry care</button>
-          <button onclick="info('sizing')" data-en="Size guide" data-tr="Ölçü rehberi">Size guide</button>
-          <button onclick="info('shipping')" data-en="Shipping & returns" data-tr="Nakliye, iade ve değişim">Shipping & returns</button>
+          <span class="eyebrow" data-en="CUSTOMER SERVICE" data-tr="MÜŞTERİ HİZMETLERİ">
+            CUSTOMER SERVICE
+          </span>
+          <button onclick="info('care')" data-en="Jewelry care" data-tr="Takı bakımı">
+            Jewelry care
+          </button>
+          <button onclick="info('sizing')" data-en="Size guide" data-tr="Ölçü rehberi">
+            Size guide
+          </button>
+          <button
+            onclick="info('shipping')"
+            data-en="Shipping & returns"
+            data-tr="Nakliye, iade ve değişim"
+          >
+            Shipping & returns
+          </button>
         </div>
         <div>
           <span class="eyebrow" data-en="MEMBERSHIP" data-tr="ÜYELİK">MEMBERSHIP</span>
@@ -435,14 +492,32 @@
           <span class="eyebrow" data-en="ABOUT US" data-tr="HAKKIMIZDA">ABOUT US</span>
           <a href="/our-world" data-en="About KİBELE" data-tr="KİBELE Hakkında">About KİBELE</a>
           <a href="/materials" data-en="The materials" data-tr="Materyaller">The materials</a>
-          <a href="/collections/cappadocia" data-en="Cappadocia Collection" data-tr="Kapadokya Serisi">Cappadocia Collection</a>
+          <a
+            href="/collections/cappadocia"
+            data-en="Cappadocia Collection"
+            data-tr="Kapadokya Serisi"
+          >
+            Cappadocia Collection
+          </a>
         </div>
         <div>
           <span class="eyebrow" data-en="LEGAL" data-tr="YASAL KOŞULLAR">LEGAL</span>
-          <button onclick="info('legal')" data-en="Terms of use" data-tr="Kullanım Koşulları">Terms of use</button>
-          <button onclick="info('legal')" data-en="Privacy policy" data-tr="Gizlilik politikası">Privacy policy</button>
-          <button onclick="info('legal')" data-en="Cookie consent" data-tr="Çerez Onayı">Cookie consent</button>
-          <button onclick="info('legal')" data-en="Distance sales agreement" data-tr="Mesafeli satış sözleşmesi">Distance sales agreement</button>
+          <button onclick="info('legal')" data-en="Terms of use" data-tr="Kullanım Koşulları">
+            Terms of use
+          </button>
+          <button onclick="info('legal')" data-en="Privacy policy" data-tr="Gizlilik politikası">
+            Privacy policy
+          </button>
+          <button onclick="info('legal')" data-en="Cookie consent" data-tr="Çerez Onayı">
+            Cookie consent
+          </button>
+          <button
+            onclick="info('legal')"
+            data-en="Distance sales agreement"
+            data-tr="Mesafeli satış sözleşmesi"
+          >
+            Distance sales agreement
+          </button>
         </div>
       </div>
       <!-- DİL SATIRI: Dünya simgesi sağ paneli açar. -->
@@ -483,13 +558,23 @@
         <!-- SOSYAL MEDYA: href="#" değerlerini kendi hesap adreslerinizle değiştirin. -->
         <div class="sf-social">
           <a href="#" aria-label="Instagram">
-            <svg viewBox="0 0 24 24"><rect x="7" y="7" width="10" height="10" rx="3" /><circle cx="12" cy="12" r="2.4" /><circle cx="15.2" cy="8.8" r=".6" /></svg>
+            <svg viewBox="0 0 24 24">
+              <rect x="7" y="7" width="10" height="10" rx="3" />
+              <circle cx="12" cy="12" r="2.4" />
+              <circle cx="15.2" cy="8.8" r=".6" />
+            </svg>
           </a>
           <a href="#" aria-label="Pinterest">
-            <svg viewBox="0 0 24 24"><path d="M11 17.5 12.2 11M9.5 10.5c.5-2 3-2.4 4-1.2 1.2 1.4.2 4.2-1.8 4.4-.8.1-1.4-.4-1.5-1" /></svg>
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M11 17.5 12.2 11M9.5 10.5c.5-2 3-2.4 4-1.2 1.2 1.4.2 4.2-1.8 4.4-.8.1-1.4-.4-1.5-1"
+              />
+            </svg>
           </a>
           <a href="#" aria-label="TikTok">
-            <svg viewBox="0 0 24 24"><path d="M13 7v8a2.5 2.5 0 1 1-2.5-2.5M13 7c.3 1.8 1.5 2.9 3.2 3" /></svg>
+            <svg viewBox="0 0 24 24">
+              <path d="M13 7v8a2.5 2.5 0 1 1-2.5-2.5M13 7c.3 1.8 1.5 2.9 3.2 3" />
+            </svg>
           </a>
         </div>
       </div>
