@@ -1,0 +1,1 @@
+ALTER TABLE `products` ADD `series` text DEFAULT '' NOT NULL;

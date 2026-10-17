@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>KİBELE · Yönetim</title>
+    <meta name="robots" content="noindex" />
+    <link rel="stylesheet" href="/admin.css" />
+  </head>
+  <body>
+    <aside class="sidebar">
+      <a class="brand" href="/">
+        KİBELE
+        <span>MAĞAZA YÖNETİMİ</span>
+      </a>
+      <p class="section-label">ÇALIŞMA ALANINIZ</p>
+      <button class="nav-item active" data-view="products" onclick="switchView('products')">
+        ▦
+        <span>Ürünler</span>
+      </button>
+      <button class="nav-item" data-view="appearance" onclick="switchView('appearance')">
+        ◧
+        <span>Vitrin görseli</span>
+      </button>
+      <div class="sidebar-bottom">
+        <a href="/" target="_blank" rel="noopener">Mağazayı görüntüle ↗</a>
+        <p>
+          Ürün ve fotoğraf değişiklikleri
+          <br />
+          mağazanızla doğrudan bağlantılı.
+        </p>
+      </div>
+    </aside>
+    <main class="workspace">
+      <header class="topbar">
+        <span>
+          KİBELE /
+          <b id="breadcrumb">Ürünler</b>
+        </span>
+        <a href="/" target="_blank" rel="noopener">Mağazaya git ↗</a>
+      </header>
+      <div id="auth-state" class="state-card" hidden></div>
+      <div id="app-content">
+        <section id="products-view">
+          <div class="page-heading">
+            <div>
+              <span class="eyebrow">KOLEKSİYONUNUZ, SİZİN KONTROLÜNÜZDE</span>
+              <h1>Ürünler</h1>
+              <p>Ekleyin, düzenleyin ve mağazanızda yayınlayın.</p>
+            </div>
+            <button class="primary" onclick="editProduct()">＋ Yeni ürün</button>
+          </div>
+          <div id="example-notice" class="notice" hidden>
+            Vitrinde şu anda örnek ürünler gösteriliyor. İlk düzenlemenizde bu katalog veritabanına
+            kaydedilir. Örnek ürünleri silebilir veya kendi ürünlerinizi ekleyebilirsiniz.
+          </div>
+          <div class="stats">
+            <div>
+              <span>Toplam ürün</span>
+              <strong id="stat-total">—</strong>
+            </div>
+            <div>
+              <span>Yayında</span>
+              <strong id="stat-active">—</strong>
+            </div>
+            <div>
+              <span>Stokta yok</span>
+              <strong id="stat-empty">—</strong>
+            </div>
+            <div>
+              <span>Para birimi</span>
+              <strong>
+                EUR
+                <small>€</small>
+              </strong>
+            </div>
+          </div>
+          <div class="catalog-panel">
+            <div class="toolbar">
+              <input
+                id="admin-search"
+                type="search"
+                placeholder="Ürün adı veya taş ara…"
+                aria-label="Ürün ara"
+                oninput="renderList()"
+              />
+              <select id="status-filter" aria-label="Yayın durumu" onchange="renderList()">
+                <option value="all">Tüm ürünler</option>
+                <option value="active">Yayında</option>
+                <option value="draft">Taslak</option>
+                <option value="empty">Stokta yok</option>
+              </select>
+              <button class="quiet" onclick="loadCatalog()">↻ Yenile</button>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>ÜRÜN</th>
+                    <th>KATEGORİ</th>
+                    <th>FİYAT</th>
+                    <th>STOK</th>
+                    <th>DURUM</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody id="product-list">
+                  <tr>
+                    <td colspan="6" class="empty">Koleksiyonunuz yükleniyor…</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <p class="footnote">
+            Gizlediğiniz ürünler vitrinde gösterilmez. Stoku 0 olan ürünler sepete eklenemez.
+          </p>
+        </section>
+        <section id="editor-view" hidden>
+          <div class="page-heading">
+            <div>
+              <button class="back" onclick="switchView('products')">← Ürünlere dön</button>
+              <h1 id="editor-title">Yeni ürün</h1>
+              <p>Son dokunuşları yapın, ardından kaydedin.</p>
+            </div>
+            <button class="primary" type="submit" form="product-form" id="save-top">
+              Kaydet ve yayınla
+            </button>
+          </div>
+          <form id="product-form" onsubmit="event.preventDefault();saveProduct()">
+            <div class="editor-grid">
+              <div>
+                <section class="card">
+                  <h2>Ürün bilgileri</h2>
+                  <label>
+                    Ürün adı
+                    <span>*</span>
+                    <input
+                      name="name"
+                      maxlength="120"
+                      required
+                      placeholder="Örn. Zultanite Gümüş Yüzük"
+                    />
+                  </label>
+                  <label>
+                    Açıklama
+                    <textarea
+                      name="description"
+                      maxlength="5000"
+                      rows="6"
+                      placeholder="Taş, işçilik, ölçü ve bakım bilgileri…"
+                    ></textarea>
+                  </label>
+                  <div class="form-row">
+                    <label>
+                      Kategori
+                      <select name="category">
+                        <option value="Rings">Yüzük</option>
+                        <option value="Necklaces">Kolye</option>
+                        <option value="Earrings">Küpe</option>
+                        <option value="Bracelets">Bileklik</option>
+                        <option value="Charms">Charm</option>
+                      </select>
+                    </label>
+                    <label>
+                      Materyal
+                      <select name="material">
+                        <option value="Silver">Gümüş</option>
+                        <option value="Gold">Altın</option>
+                        <option value="Gemstone">Doğal taş</option>
+                      </select>
+                    </label>
+                  </div>
+                  <label>
+                    Taş
+                    <input
+                      name="stone"
+                      maxlength="100"
+                      placeholder="Örn. Zultanite, Aquamarine, Sitrin"
+                    />
+                  </label>
+                  <label>
+                    Koleksiyon
+                    <select name="series">
+                      <option value="">Genel koleksiyon</option>
+                      <option value="cappadocia">Kapadokya Serisi</option>
+                      <option value="balloon">Kapadokya · Balon</option>
+                      <option value="turkish-eye">Kapadokya · Nazar</option>
+                    </select>
+                  </label>
+                  <label>
+                    Ürün etiketi
+                    <input name="tag" maxlength="60" placeholder="Örn. YENİ KOLEKSİYON" />
+                  </label>
+                </section>
+                <section class="card">
+                  <div class="card-title">
+                    <div>
+                      <h2>Ürün fotoğrafları</h2>
+                      <p>İlk fotoğraf vitrinde kapak olarak gösterilir.</p>
+                    </div>
+                    <span id="photo-count">0 / 8</span>
+                  </div>
+                  <div id="photo-grid" class="photo-grid"></div>
+                  <label class="upload-zone" id="upload-zone">
+                    <span>＋</span>
+                    <strong>Fotoğraf eklemek için tıklayın</strong>
+                    <small>JPG, PNG, WebP · en fazla 5 MB / fotoğraf · 8 fotoğraf</small>
+                    <input
+                      id="product-photos"
+                      type="file"
+                      accept="image/jpeg,image/png,image/webp"
+                      multiple
+                      onchange="uploadProductPhotos(this)"
+                    />
+                  </label>
+                  <p id="upload-state" class="help" role="status"></p>
+                </section>
+              </div>
+              <div>
+                <section class="card">
+                  <h2>Fiyat ve stok</h2>
+                  <label>
+                    Satış fiyatı · EUR (€)
+                    <span>*</span>
+                    <input
+                      name="price"
+                      type="number"
+                      min="0.01"
+                      max="1000000"
+                      step="0.01"
+                      required
+                      placeholder="0.00"
+                    />
+                  </label>
+                  <label>
+                    Stok adedi
+                    <span>*</span>
+                    <input
+                      name="stock"
+                      type="number"
+                      min="0"
+                      max="1000000"
+                      step="1"
+                      required
+                      value="1"
+                    />
+                  </label>
+                  <p class="help">
+                    Vitrin ve sepet fiyatları bu tutardan güncellenir. Bu sürümde para birimi
+                    EUR'dur.
+                  </p>
+                </section>
+                <section class="card">
+                  <h2>Görünürlük</h2>
+                  <label class="toggle-row">
+                    <input name="active" type="checkbox" checked />
+                    <span>Mağazada yayınla</span>
+                  </label>
+                  <p class="help">
+                    Kapalı olduğunda ürün taslak olarak saklanır ve müşterilere gösterilmez.
+                  </p>
+                </section>
+                <section class="save-card">
+                  <button class="primary" type="submit" id="save-bottom">Kaydet ve yayınla</button>
+                  <button class="quiet" type="button" onclick="switchView('products')">
+                    Vazgeç
+                  </button>
+                  <p id="save-state" role="status"></p>
+                </section>
+                <button
+                  id="delete-product"
+                  class="danger-link"
+                  type="button"
+                  onclick="askDelete(editingId)"
+                  hidden
+                >
+                  Ürünü kalıcı olarak sil
+                </button>
+              </div>
+            </div>
+          </form>
+        </section>
+        <section id="appearance-view" hidden>
+          <div class="page-heading">
+            <div>
+              <span class="eyebrow">İLK İZLENİM</span>
+              <h1>Vitrin görseli</h1>
+              <p>Ana sayfayı açan tam ekran fotoğrafı buradan değiştirin.</p>
+            </div>
+          </div>
+          <div class="card appearance-card">
+            <img id="hero-preview" src="/assets/hero.jpg" alt="Mevcut açılış fotoğrafı" />
+            <div>
+              <h2>Açılış fotoğrafı</h2>
+              <p>
+                Yatay, yüksek çözünürlüklü bir fotoğraf önerilir. Farklı ekranlarda kenarlar
+                kırpılabilir; ana objeyi ortada tutun.
+              </p>
+              <label class="primary upload-button">
+                Yeni fotoğraf seç
+                <input
+                  type="file"
+                  accept="image/jpeg,image/png,image/webp"
+                  onchange="uploadHero(this)"
+                />
+              </label>
+              <button id="hero-save" class="secondary" onclick="saveHero()" disabled>
+                Değişikliği kaydet
+              </button>
+              <p id="hero-state" class="help" role="status"></p>
+              <button class="quiet" onclick="restoreHero()">Örnek görsele dön</button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <dialog id="confirm-dialog">
+      <h2>Bu ürün silinsin mi?</h2>
+      <p id="delete-name"></p>
+      <p>Ürün mağazadan ve katalogdan kaldırılır. Bu işlem geri alınamaz.</p>
+      <div>
+        <button class="secondary" onclick="document.querySelector('#confirm-dialog').close()">
+          Vazgeç
+        </button>
+        <button class="danger" id="confirm-delete">Ürünü sil</button>
+      </div>
+    </dialog>
+    <div id="admin-toast" role="status" aria-live="polite"></div>
+    <script src="/admin.js"></script>
+  </body>
+</html>

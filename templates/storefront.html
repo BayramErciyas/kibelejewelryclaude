@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Explore KİBELE, a luxury jewelry concept. Discover sculptural gold, sterling silver and gemstone jewelry in an interactive shopping preview."
+    />
+    <meta name="theme-color" content="#f7f4ee" />
+    <title>KİBELE — Objects of lasting beauty</title>
+    <link rel="preload" as="image" href="/assets/hero.jpg" />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body data-page-kind="home" data-default-category="All" data-default-material="All">
+    <a class="skip" href="#collection">Skip to collection</a>
+    <!-- ÜST MENÜ: Açılışta büyük, kaydırıldığında kompakt. -->
+    <header class="campaign-header">
+      <div class="header-utility">
+        <a
+          href="/collections/cappadocia"
+          data-en="Cappadocia Collection"
+          data-tr="Kapadokya Serisi"
+        >
+          Cappadocia Collection
+        </a>
+        <a class="text-button account-link" href="/login" data-en="Sign in" data-tr="Oturum Açma">
+          Sign in
+        </a>
+      </div>
+      <div class="header-main">
+        <button
+          class="icon campaign-menu"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="main-nav"
+          onclick="toggleMenu()"
+        >
+          <svg viewBox="0 0 24 24"><path d="M2 5h20M2 12h20M2 19h20" /></svg>
+          <span data-en="Menu" data-tr="Menü">Menu</span>
+        </button>
+        <a href="/" class="wordmark" aria-label="KİBELE home">
+          KİBELE
+          <span>JEWELRY ATELIER</span>
+        </a>
+        <div class="header-tools">
+          <button
+            class="text-button"
+            id="lang"
+            onclick="toggleLanguage()"
+            aria-label="Türkçe / English"
+          >
+            TR / EN
+          </button>
+          <button class="icon" aria-label="Search" onclick="openSearch()">
+            <svg viewBox="0 0 24 24">
+              <circle cx="10.8" cy="10.8" r="7.3" />
+              <path d="m16 16 5 5" />
+            </svg>
+          </button>
+          <button class="icon bag fav" aria-label="İstek listem / Wishlist" onclick="showFavorites()">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M20.8 4.6c-2.4-2.2-6-1.6-8.8 1.6C9.2 3 5.6 2.4 3.2 4.6c-2.5 2.4-1.8 6 .4 8.3L12 21l8.4-8.1c2.2-2.3 2.9-5.9.4-8.3Z"
+              />
+            </svg>
+            <span id="fav-count">0</span>
+          </button>
+          <button class="icon bag" aria-label="Alışveriş çantası / Shopping bag" onclick="openCart()">
+            <svg viewBox="0 0 24 24"><path d="M4 7h16l1 14H3L4 7Zm4 0V5a4 4 0 0 1 8 0v2" /></svg>
+            <span id="count">0</span>
+          </button>
+        </div>
+      </div>
+      <nav id="main-nav" aria-label="Main navigation" inert>
+        <a href="/collections/all" data-en="Discover all" data-tr="Tümünü keşfet">Discover all</a>
+        <a href="/collections/rings" data-en="Rings" data-tr="Yüzükler">Rings</a>
+        <a href="/collections/necklaces" data-en="Necklaces" data-tr="Kolyeler">Necklaces</a>
+        <a href="/collections/earrings" data-en="Earrings" data-tr="Küpeler">Earrings</a>
+        <a href="/collections/bracelets" data-en="Bracelets" data-tr="Bileklikler">Bracelets</a>
+        <a href="/collections/charms" data-en="Charms" data-tr="Charm">Charms</a>
+        <a href="/collections/gold" data-en="Gold jewelry" data-tr="Altın takılar">Gold jewelry</a>
+        <a href="/collections/silver" data-en="Silver jewelry" data-tr="Gümüş takılar">
+          Silver jewelry
+        </a>
+        <a href="/collections/gemstones" data-en="Gemstone jewelry" data-tr="Doğal taşlı takılar">
+          Gemstone jewelry
+        </a>
+        <a
+          href="/collections/cappadocia"
+          data-en="Cappadocia Collection"
+          data-tr="Kapadokya Serisi"
+        >
+          Cappadocia Collection
+        </a>
+        <a href="/materials" data-en="The materials" data-tr="Materyaller">The materials</a>
+        <a href="/our-world" data-en="Our world" data-tr="Dünyamız">Our world</a>
+      </nav>
+    </header>
+    <main>
+      <!-- TAM EKRAN AÇILIŞ: Fotoğraf /admin üzerinden değiştirilebilir. -->
+      <section class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow" data-en="THE ART OF THE EVERYDAY" data-tr="HER GÜNÜN SANATI">
+            THE ART OF THE EVERYDAY
+          </span>
+          <h1 data-en="Some things<br>stay with you." data-tr="Bazı şeyler<br>hep seninle kalır.">
+            Some things
+            <br />
+            stay with you.
+          </h1>
+          <p
+            data-en="Quiet statements. Extraordinary details.<br>Jewelry to become a part of your story."
+            data-tr="Sade bir duruş. Eşsiz detaylar.<br>Hikâyenin bir parçası olacak takılar."
+          >
+            Quiet statements. Extraordinary details.
+            <br />
+            Jewelry to become a part of your story.
+          </p>
+          <div class="hero-actions">
+            <a
+              class="button dark"
+              href="/collections/all"
+              data-en="Shop now ↗"
+              data-tr="Şimdi keşfedin ↗"
+            >
+              Shop now ↗
+            </a>
+            <a
+              class="button ghost"
+              href="/our-world"
+              data-en="Discover more"
+              data-tr="Daha fazlasını keşfedin"
+            >
+              Discover more
+            </a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img
+            src="/assets/hero.jpg"
+            alt="Model wearing gold jewelry from the KİBELE Cappadocia collection"
+            width="1024"
+            height="1536"
+            fetchpriority="high"
+          />
+        </div>
+        <a class="scroll-cue" href="#collection">
+          <span data-en="SCROLL TO DISCOVER" data-tr="KEŞFETMEK İÇİN KAYDIR">
+            SCROLL TO DISCOVER
+          </span>
+          <span aria-hidden="true">↓</span>
+        </a>
+      </section>
+      <section class="intro">
+        <span class="eyebrow" data-en="LESS, BUT MEANINGFUL" data-tr="AZ, AMA ANLAMLI">
+          LESS, BUT MEANINGFUL
+        </span>
+        <p
+          data-en="Not just something you wear.<br>Something you feel."
+          data-tr="Sadece taktığın bir şey değil.<br>Hissettiğin bir şey."
+        >
+          Not just something you wear.
+          <br />
+          Something you feel.
+        </p>
+        <span class="small">THE KİBELE POINT OF VIEW</span>
+      </section>
+      <!-- KATEGORİYE GÖRE ALIŞVERİŞ: Aşağı ilk inişte yavaşça belirir, üzerine gelince hafifçe yakınlaşır. -->
+      <section class="shop-categories" id="categories">
+        <h2 class="reveal" data-en="Shop by category" data-tr="Kategoriye göre alışveriş yapın">
+          Shop by category
+        </h2>
+        <div class="category-grid">
+        <a class="category-tile reveal" href="/collections/necklaces" style="--i: 0">
+          <span class="category-image">
+            <img src="/assets/necklace.jpg" alt="Necklaces" loading="lazy" style="object-position: center 40%" />
+          </span>
+          <span class="category-label" data-en="Necklaces" data-tr="Kolyeler">Necklaces</span>
+        </a>
+        <a class="category-tile reveal" href="/collections/rings" style="--i: 1">
+          <span class="category-image">
+            <img src="/assets/ring.jpg" alt="Rings" loading="lazy" style="object-position: center" />
+          </span>
+          <span class="category-label" data-en="Rings" data-tr="Yüzükler">Rings</span>
+        </a>
+        <a class="category-tile reveal" href="/collections/bracelets" style="--i: 2">
+          <span class="category-image">
+            <img src="/assets/bracelet.jpg" alt="Bracelets" loading="lazy" style="object-position: center" />
+          </span>
+          <span class="category-label" data-en="Bracelets" data-tr="Bileklikler">Bracelets</span>
+        </a>
+        <a class="category-tile reveal" href="/collections/earrings" style="--i: 3">
+          <span class="category-image">
+            <img src="/assets/earrings.jpg" alt="Earrings" loading="lazy" style="object-position: center" />
+          </span>
+          <span class="category-label" data-en="Earrings" data-tr="Küpeler">Earrings</span>
+        </a>
+        <a class="category-tile reveal" href="/collections/charms" style="--i: 0">
+          <span class="category-image">
+            <img src="/assets/story.jpg" alt="Charms" loading="lazy" style="object-position: center 30%" />
+          </span>
+          <span class="category-label" data-en="Charms" data-tr="Charm">Charms</span>
+        </a>
+        <a class="category-tile reveal" href="/collections/cappadocia" style="--i: 1">
+          <span class="category-image">
+            <img src="/assets/hero.jpg" alt="Cappadocia Collection" loading="lazy" style="object-position: center 25%" />
+          </span>
+          <span class="category-label" data-en="Cappadocia Collection" data-tr="Kapadokya Serisi">Cappadocia Collection</span>
+        </a>
+        <a class="category-tile reveal" href="/collections/silver" style="--i: 2">
+          <span class="category-image">
+            <img src="/assets/bracelet.jpg" alt="Silver jewelry" loading="lazy" style="object-position: 70% 40%" />
+          </span>
+          <span class="category-label" data-en="Silver jewelry" data-tr="Gümüş takılar">Silver jewelry</span>
+        </a>
+        <a class="category-tile reveal" href="/collections/gemstones" style="--i: 3">
+          <span class="category-image">
+            <img src="/assets/ring.jpg" alt="Gemstone jewelry" loading="lazy" style="object-position: 30% 60%" />
+          </span>
+          <span class="category-label" data-en="Gemstone jewelry" data-tr="Doğal taşlı takılar">Gemstone jewelry</span>
+        </a>
+        </div>
+      </section>
+      <!-- ÖZEL SERİ: Solda metin, sağda tam boy fotoğraf. -->
+      <section class="feature-split">
+        <div class="feature-copy reveal">
+          <span
+            class="eyebrow"
+            data-en="CARRY THE LIGHT OF CAPPADOCIA"
+            data-tr="KAPADOKYA’NIN IŞIĞINI TAŞIYIN"
+          >
+            CARRY THE LIGHT OF CAPPADOCIA
+          </span>
+          <h2 data-en="The Cappadocia Collection" data-tr="Kapadokya Serisi">
+            The Cappadocia Collection
+          </h2>
+          <p
+            data-en="Warm tones, soft light and ancient symbols. Every piece in this collection is inspired by the colors, symbols and landscapes of Cappadocia."
+            data-tr="Sıcak tonlar, yumuşak ışık ve kadim semboller. Bu koleksiyondaki her parça Kapadokya’nın renklerinden, sembollerinden ve manzaralarından ilham alır."
+          >
+            Warm tones, soft light and ancient symbols. Every piece in this collection is inspired
+            by the colors, symbols and landscapes of Cappadocia.
+          </p>
+          <a class="text-link" href="/our-world" data-en="Read more" data-tr="Devamını oku">
+            Read more
+          </a>
+          <a
+            class="text-link"
+            href="/collections/cappadocia"
+            data-en="Shop the Cappadocia Collection"
+            data-tr="Kapadokya Serisini keşfedin"
+          >
+            Shop the Cappadocia Collection
+          </a>
+        </div>
+        <div class="feature-image reveal">
+          <img src="/assets/earrings.jpg" alt="Cappadocia Collection earrings" loading="lazy" />
+        </div>
+      </section>
+      <!-- SAF ZARAFET: Ürünler arasında yavaş geçişli kaydırmalı bölüm. Kartlar public/app.js ile dolar. -->
+      <section class="pure-carousel" aria-labelledby="carousel-title">
+        <h2 id="carousel-title" data-en="Pure elegance" data-tr="Saf Zarafet">Pure elegance</h2>
+        <div class="carousel-shell">
+          <button class="carousel-btn prev" aria-label="Önceki / Previous" onclick="slideCarousel(-1)" hidden>
+            <svg viewBox="0 0 24 24"><path d="m15 5-7 7 7 7" /></svg>
+          </button>
+          <div class="carousel-track" id="carousel-track" tabindex="0"></div>
+          <button class="carousel-btn next" aria-label="Sonraki / Next" onclick="slideCarousel(1)">
+            <svg viewBox="0 0 24 24"><path d="m9 5 7 7-7 7" /></svg>
+          </button>
+        </div>
+      </section>
+      <!-- ÜRÜN KOLEKSİYONU: Kartları public/app.js sunucu verisinden oluşturur. -->
+      <!-- PRODUCT_LIST -->
+      <!-- MARKA HİKÂYESİ -->
+      <section class="editorial" id="story">
+        <div class="editorial-image">
+          <img
+            src="/assets/story.jpg"
+            alt="Layered delicate jewelry photographed in natural light"
+            loading="lazy"
+            width="1000"
+            height="1200"
+          />
+        </div>
+        <div class="editorial-copy">
+          <span class="eyebrow" data-en="A WORLD OF KİBELE" data-tr="KİBELE DÜNYASI">
+            A WORLD OF KİBELE
+          </span>
+          <h2 data-en="For the moments.<br>For the years." data-tr="Anlar için.<br>Yıllar için.">
+            For the moments.
+            <br />
+            For the years.
+          </h2>
+          <p
+            data-en="We imagine jewelry as a personal language. A curve that catches the light. A stone that draws you in. Pieces chosen for the way they make you feel, today and every day after."
+            data-tr="Takıyı kişisel bir dil olarak hayal ediyoruz. Işığı yakalayan bir kıvrım. Seni içine çeken bir taş. Bugün ve sonraki her gün sana hissettirdikleri için seçtiğin parçalar."
+          >
+            We imagine jewelry as a personal language. A curve that catches the light. A stone that
+            draws you in. Pieces chosen for the way they make you feel, today and every day after.
+          </p>
+          <button
+            class="link-button"
+            onclick="openStory()"
+            data-en="Discover our perspective ↗"
+            data-tr="Bakış açımızı keşfet ↗"
+          >
+            Discover our perspective ↗
+          </button>
+        </div>
+      </section>
+      <!-- MATERYAL KOLEKSİYONLARI -->
+      <section class="materials" id="materials">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow" data-en="NATURE. REFINED." data-tr="DOĞA. ZARAFETLE.">
+              NATURE. REFINED.
+            </span>
+            <h2 data-en="Find your element" data-tr="Seni yansıtanı bul">Find your element</h2>
+          </div>
+          <p
+            data-en="Different expressions.<br>The same attention to detail."
+            data-tr="Farklı ifadeler.<br>Aynı detay tutkusu."
+          >
+            Different expressions.
+            <br />
+            The same attention to detail.
+          </p>
+        </div>
+        <div class="material-grid">
+          <a href="/collections/gold">
+            <img src="/assets/hero.jpg" alt="Sculptural gold jewelry" loading="lazy" />
+            <div>
+              <span>01 / GOLD</span>
+              <h3 data-en="A warmer kind of light" data-tr="Işığın sıcak hâli">
+                A warmer kind of light
+              </h3>
+              <span>↗</span>
+            </div>
+          </a>
+          <a href="/collections/silver">
+            <img src="/assets/bracelet.jpg" alt="Fine bracelet detail" loading="lazy" />
+            <div>
+              <span>02 / SILVER</span>
+              <h3 data-en="Simply, timeless" data-tr="Zamansız sadelik">Simply, timeless</h3>
+              <span>↗</span>
+            </div>
+          </a>
+          <a href="/collections/gemstones">
+            <img src="/assets/ring.jpg" alt="Faceted gemstone ring" loading="lazy" />
+            <div>
+              <span>03 / GEMSTONES</span>
+              <h3 data-en="Color with character" data-tr="Karakteri olan renkler">
+                Color with character
+              </h3>
+              <span>↗</span>
+            </div>
+          </a>
+        </div>
+      </section>
+      <section class="service">
+        <div>
+          <span>◇</span>
+          <h3 data-en="Thoughtful details" data-tr="Özenli detaylar">Thoughtful details</h3>
+          <p
+            data-en="Materials and sizing, clearly explained."
+            data-tr="Materyal ve ölçü bilgileri bir arada."
+          >
+            Materials and sizing, clearly explained.
+          </p>
+        </div>
+        <div>
+          <span>↗</span>
+          <h3 data-en="Made for discovery" data-tr="Keşfetmek için">Made for discovery</h3>
+          <p
+            data-en="Explore at your pace, on any screen."
+            data-tr="Her ekranda, kendi hızında keşfet."
+          >
+            Explore at your pace, on any screen.
+          </p>
+        </div>
+        <div>
+          <span>♡</span>
+          <h3 data-en="Keep what you love" data-tr="Sevdiklerini sakla">Keep what you love</h3>
+          <p
+            data-en="Save favorites for another moment."
+            data-tr="Favorilerini bir sonraki ana sakla."
+          >
+            Save favorites for another moment.
+          </p>
+        </div>
+      </section>
+    </main>
+    <!-- ÜYELİK BANNER'I: Tüm sayfalarda alt bölümün hemen üstünde görünür. -->
+    <section class="club-banner" aria-labelledby="club-title">
+      <div class="club-copy">
+        <h2 id="club-title" data-en="Join the KİBELE Club" data-tr="KİBELE Kulübü’ne katılın">
+          Join the KİBELE Club
+        </h2>
+        <p
+          data-en="Be the first to hear about new collections, style inspiration and gift ideas. Register today and get early access to everything new."
+          data-tr="Yeni koleksiyonlara dair güncellemelere, tarz ilhamlarına ve hediye fikirlerine ilk siz ulaşın. Bugün kayıt olun, yeniliklere herkesten önce erişin."
+        >
+          Be the first to hear about new collections, style inspiration and gift ideas. Register
+          today and get early access to everything new.
+        </p>
+        <a class="button dark" href="/login" data-en="Join the club" data-tr="Kulübe katılın">
+          Join the club
+        </a>
+      </div>
+      <svg class="club-emblem" viewBox="0 0 120 140" aria-hidden="true">
+        <path d="M60 4 112 34v72l-52 30L8 106V34Z" />
+        <path d="M60 18 100 41v58l-40 23-40-23V41Z" />
+        <text x="60" y="88" text-anchor="middle">K</text>
+      </svg>
+    </section>
+    <!-- ALT BÖLÜM: Koyu zeminde dört sütun, dil satırı, logo ve sosyal medya. -->
+    <footer class="site-footer">
+      <div class="sf-columns">
+        <div>
+          <span class="eyebrow" data-en="CUSTOMER SERVICE" data-tr="MÜŞTERİ HİZMETLERİ">CUSTOMER SERVICE</span>
+          <button onclick="info('care')" data-en="Jewelry care" data-tr="Takı bakımı">Jewelry care</button>
+          <button onclick="info('sizing')" data-en="Size guide" data-tr="Ölçü rehberi">Size guide</button>
+          <button onclick="info('shipping')" data-en="Shipping & returns" data-tr="Nakliye, iade ve değişim">Shipping & returns</button>
+        </div>
+        <div>
+          <span class="eyebrow" data-en="MEMBERSHIP" data-tr="ÜYELİK">MEMBERSHIP</span>
+          <a href="/login" data-en="Sign in" data-tr="Oturum açma">Sign in</a>
+          <a href="/login" data-en="Register" data-tr="Kayıt">Register</a>
+          <a href="/favorites" data-en="My wishlist" data-tr="İstek listem">My wishlist</a>
+          <a href="/account" data-en="My account" data-tr="Hesabım">My account</a>
+        </div>
+        <div>
+          <span class="eyebrow" data-en="ABOUT US" data-tr="HAKKIMIZDA">ABOUT US</span>
+          <a href="/our-world" data-en="About KİBELE" data-tr="KİBELE Hakkında">About KİBELE</a>
+          <a href="/materials" data-en="The materials" data-tr="Materyaller">The materials</a>
+          <a href="/collections/cappadocia" data-en="Cappadocia Collection" data-tr="Kapadokya Serisi">Cappadocia Collection</a>
+        </div>
+        <div>
+          <span class="eyebrow" data-en="LEGAL" data-tr="YASAL KOŞULLAR">LEGAL</span>
+          <button onclick="info('legal')" data-en="Terms of use" data-tr="Kullanım Koşulları">Terms of use</button>
+          <button onclick="info('legal')" data-en="Privacy policy" data-tr="Gizlilik politikası">Privacy policy</button>
+          <button onclick="info('legal')" data-en="Cookie consent" data-tr="Çerez Onayı">Cookie consent</button>
+          <button onclick="info('legal')" data-en="Distance sales agreement" data-tr="Mesafeli satış sözleşmesi">Distance sales agreement</button>
+        </div>
+      </div>
+      <!-- DİL SATIRI: Dünya simgesi sağ paneli açar. -->
+      <div class="footer-region">
+        <div class="footer-locale-control">
+          <button
+            class="globe-button"
+            onclick="openRegionPanel()"
+            aria-label="Country / region and language"
+            aria-haspopup="dialog"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="9" />
+              <ellipse cx="12" cy="12" rx="4" ry="9" />
+              <path d="M3 12h18M5 7h14M5 17h14" />
+            </svg>
+          </button>
+          <div id="footer-language-options">
+            <button onclick="setLanguage('en')">English</button>
+            <span aria-hidden="true">-</span>
+            <button onclick="setLanguage('tr')">Türkçe</button>
+          </div>
+        </div>
+        <span class="footer-currency">EUR</span>
+      </div>
+      <div class="sf-bottom">
+        <p
+          data-en="© 2026 KİBELE. Concept edition. This is an interactive design concept: no orders or payments are processed."
+          data-tr="© 2026 KİBELE. Konsept sürüm. Bu etkileşimli bir tasarım konseptidir: sipariş veya ödeme alınmaz."
+        >
+          © 2026 KİBELE. Concept edition. This is an interactive design concept: no orders or
+          payments are processed.
+        </p>
+        <a href="/" class="wordmark" aria-label="KİBELE home">
+          KİBELE
+          <span>JEWELRY ATELIER</span>
+        </a>
+        <!-- SOSYAL MEDYA: href="#" değerlerini kendi hesap adreslerinizle değiştirin. -->
+        <div class="sf-social">
+          <a href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><rect x="7" y="7" width="10" height="10" rx="3" /><circle cx="12" cy="12" r="2.4" /><circle cx="15.2" cy="8.8" r=".6" /></svg>
+          </a>
+          <a href="#" aria-label="Pinterest">
+            <svg viewBox="0 0 24 24"><path d="M11 17.5 12.2 11M9.5 10.5c.5-2 3-2.4 4-1.2 1.2 1.4.2 4.2-1.8 4.4-.8.1-1.4-.4-1.5-1" /></svg>
+          </a>
+          <a href="#" aria-label="TikTok">
+            <svg viewBox="0 0 24 24"><path d="M13 7v8a2.5 2.5 0 1 1-2.5-2.5M13 7c.3 1.8 1.5 2.9 3.2 3" /></svg>
+          </a>
+        </div>
+      </div>
+    </footer>
+    <dialog id="dialog">
+      <div class="modal-head">
+        <span id="modal-label" class="eyebrow"></span>
+        <button class="icon" aria-label="Close dialog" onclick="closeModal()">✕</button>
+      </div>
+      <div id="modal-content"></div>
+    </dialog>
+    <div id="toast" role="status" aria-live="polite"></div>
+    <!-- REGION_PANEL -->
+    <script src="/localization.js"></script>
+    <script src="/localization-copy.js"></script>
+    <script src="/app.js"></script>
+    <script src="/region-panel.js"></script>
+  </body>
+</html>

@@ -1,0 +1,51 @@
+<!-- ORTAK ÜRÜN LİSTESİ: Ana sayfa ve kategori sayfalarında birlikte kullanılır. -->
+<section id="collection" class="collection">
+  <div class="section-heading">
+    <div>
+      <span class="eyebrow" data-en="CURATED TO KEEP" data-tr="SENİN İÇİN SEÇİLDİ">
+        CURATED TO KEEP
+      </span>
+      <h2 data-en="The signature edit" data-tr="İmza koleksiyonu">The signature edit</h2>
+    </div>
+    <span id="result-count" class="small"></span>
+  </div>
+  <div class="filters">
+    <div class="tabs" id="tabs"></div>
+    <div class="filter-options">
+      <select id="metal" aria-label="Filter by material" onchange="renderProducts()">
+        <option value="All">All materials</option>
+        <option value="Gold">Gold</option>
+        <option value="Silver">Silver</option>
+        <option value="Gemstone">Gemstone</option>
+      </select>
+      <select id="sort" aria-label="Sort products" onchange="renderProducts()">
+        <option value="featured">Featured</option>
+        <option value="low">Price: low to high</option>
+        <option value="high">Price: high to low</option>
+      </select>
+    </div>
+  </div>
+  <div id="search-bar" hidden>
+    <label for="search">Search the collection</label>
+    <input id="search" placeholder="Try rings, gold or pearl…" oninput="renderProducts()" />
+    <button onclick="clearSearch()">Clear</button>
+  </div>
+  <div class="product-grid" id="products"></div>
+  <div class="collection-bottom">
+    <span
+      class="small"
+      data-en="A little discovery. A lasting connection."
+      data-tr="Küçük bir keşif. Kalıcı bir bağ."
+    >
+      A little discovery. A lasting connection.
+    </span>
+    <button
+      class="link-button"
+      onclick="resetFilters()"
+      data-en="View the complete collection ↗"
+      data-tr="Tüm koleksiyonu gör ↗"
+    >
+      View the complete collection ↗
+    </button>
+  </div>
+</section>

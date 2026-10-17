@@ -1,0 +1,24 @@
+<!-- ÜLKE / BÖLGE PANELİ: Sağdan açılan ortak pencere. -->
+<dialog id="region-panel" class="region-panel" aria-labelledby="region-title">
+  <button class="region-close" onclick="closeRegionPanel()" aria-label="Close">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 5 14 14M19 5 5 19" /></svg>
+  </button>
+  <div class="region-panel-content">
+    <h2 id="region-title" data-en="Country/Region" data-tr="Ülke/Bölge">Country/Region</h2>
+    <p class="region-current">
+      <span data-en="Your current selection:" data-tr="Mevcut seçiminiz:">
+        Your current selection:
+      </span>
+      <strong id="current-country">Türkiye</strong>
+    </p>
+    <p
+      class="region-note"
+      data-en="Select your country/region to view available languages. Your browsing preference will be remembered for your next visit."
+      data-tr="Kullanılabilir dilleri görmek için ülkenizi/bölgenizi seçin. Tercihiniz sonraki ziyaretiniz için hatırlanır."
+    >
+      Select your country/region to view available languages. Your browsing preference will be
+      remembered for your next visit.
+    </p>
+    <div id="region-groups" class="region-groups"></div>
+  </div>
+</dialog>
